@@ -432,6 +432,27 @@ public class CrudEmplImple implements CrudEmpl{
     }
     @Override
     public List<IEmployee> selectAllEmpl() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Which employee list type do you want to show?");
+        System.out.println("1. Experience");
+        System.out.println("2. Fresher");
+        System.out.println("3. Intern");
+        int num = scan.nextInt(); scan.nextLine();
+        System.out.println("-------");
+        if(num == 1){
+            for (Experience_employee exp : expManager.getExpList()){
+                System.out.println(exp);
+            }
+        }else if(num == 2){
+            for(Fresher_employee fr : fresherManager.getFresherList()){
+                System.out.println(fr);
+            }
+        }else if(num == 3){
+            for (Intern_employee in : internManager.getInternList()){
+                System.out.println(in);
+            }
+        }
+
         return null;
     }
 }
