@@ -39,9 +39,9 @@ public class CrudEmplImple implements CrudEmpl{
             System.out.println("Birthday (dd/MM/yyyy)");
             String birthDayStringEnter = scan.nextLine();
             String birthDayString = birthDayStringEnter + " 00:00:00";
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            java.util.Date birthdayParse = (Date) dateFormat.parse(birthDayString);
-            java.sql.Date birthdayDate = new java.sql.Date(birthdayParse.getTime());
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            java.util.Date birthdayParse = format.parse(birthDayString);
+            java.sql.Date birthdayDate = new Date(birthdayParse.getTime());
             System.out.println("Email: ");
             String email = scan.nextLine();
             System.out.println("Employee Type: ");
