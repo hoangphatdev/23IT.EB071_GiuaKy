@@ -2,12 +2,7 @@ package model;
 
 import java.sql.Date;
 
-public class Intern_employee implements IEmployee{
-    int id;
-    String fullName;
-    Date birthDay;
-    String email;
-    String employee_type;
+public class Intern_employee extends Employee implements IEmployee{
     private String majors;
     private int semester;
     private String university_name;
@@ -23,47 +18,6 @@ public class Intern_employee implements IEmployee{
         this.semester = semester;
         this.university_name = university_name;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public Date getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmployee_type() {
-        return employee_type;
-    }
-
-    public void setEmployee_type(String employee_type) {
-        this.employee_type = employee_type;
-    }
-
     public String getMajors() {
         return majors;
     }
@@ -90,9 +44,14 @@ public class Intern_employee implements IEmployee{
 
     @Override
     public String toString() {
-        return "model.Intern_employee{" +
-                "majors='" + majors + '\'' +
-                ", semester=" + semester +
+        return "Intern_employee{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", birthDay=" + birthDay +
+                ", email='" + email + '\'' +
+                ", employee_type='" + employee_type + '\'' +
+                ", majors='" + majors + '\'' +
+                ", semester=" + semester + '\'' +
                 ", university_name='" + university_name + '\'' +
                 '}';
     }

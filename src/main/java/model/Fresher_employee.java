@@ -3,17 +3,11 @@ package model;
 
 import java.sql.Date;
 
-public class Fresher_employee implements IEmployee{
-    int id;
-    String fullName;
-    Date birthDay;
-    String email;
-    String employee_type;
+public class Fresher_employee extends Employee implements IEmployee{
     private Date graduation_date;
     private String graduation_rank;
     private String education;
     public Fresher_employee(){};
-
     public Fresher_employee(int id, String fullName, Date birthDay, String email, String employee_type,  Date graduation_date, String graduation_rank, String education) {
         this.id = id;
         this.fullName = fullName;
@@ -24,48 +18,6 @@ public class Fresher_employee implements IEmployee{
         this.graduation_rank = graduation_rank;
         this.education = education;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public Date getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmployee_type() {
-        return employee_type;
-    }
-
-    public void setEmployee_type(String employee_type) {
-        this.employee_type = employee_type;
-    }
-
-
     public Date getGraduation_date() {
         return graduation_date;
     }
@@ -89,7 +41,6 @@ public class Fresher_employee implements IEmployee{
     public void setEducation(String education) {
         this.education = education;
     }
-
     @Override
     public String toString() {
         return "model.Fresher_employee{" +
@@ -103,7 +54,6 @@ public class Fresher_employee implements IEmployee{
                 ", education='" + education + '\'' +
                 '}';
     }
-
     @Override
     public void showInfo() {
 
