@@ -145,13 +145,92 @@ public class CrudEmplImple implements CrudEmpl{
                 else System.out.println("Id and FullName not found!!!");
             }
         }
-
-
-
         return null;
     }
     @Override
-    public IEmployee editEmpl() {
+    public IEmployee editEmpl() throws ParseException {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("----------------------------------");
+        System.out.println("1. Experience employee");
+        System.out.println("2. Fresher");
+        System.out.println("3. Intern ");
+        System.out.println("Enter type of employee which you want to edit");
+        int num = scan.nextInt(); scan.nextLine();
+        if (num == 1){
+            System.out.println("List of Experience employee");
+            for(Experience_employee ex : expManager.getExpList()){
+                System.out.println(ex);
+            }
+            System.out.println("Which experiece employee do you want to edit: ");
+            System.out.println("Please, enter id and fullname: ");
+            System.out.println("Id: ");
+            int idFind = scan.nextInt(); scan.nextLine();
+            System.out.println("FullName: ");
+            String fullNameFind = scan.nextLine();
+            int emplIndex = 0;
+            for(Experience_employee ex : expManager.getExpList()){
+                emplIndex++;
+                if (idFind == ex.getId() && fullNameFind == ex.getFullName()){
+                    System.out.println("---------");
+                    int condition = scan.nextInt(); scan.nextLine();
+                    System.out.println("Edit ID? --- 1.Yes 0.No");
+                    if (condition == 1){
+                        System.out.println("Enter ID:");
+                        int idEdit = scan.nextInt(); scan.nextLine();
+                        ex.setId(idEdit);
+                    }
+                    System.out.println("Edit fullName? --- 1.Yes 0.No");
+                    condition = scan.nextInt(); scan.nextLine();
+                    if(condition == 1){
+                        System.out.println("Enter FullName: ");
+                        String fullNameEdit = scan.nextLine();
+                        ex.setFullName(fullNameEdit);
+                    }
+                    System.out.println("Edit birthday? --- 1.Yes 0.No");
+                    condition = scan.nextInt(); scan.nextLine();
+                    if(condition == 1){
+                        System.out.println("Enter birthday: ");
+                        String birthdayString = scan.nextLine();
+                        SimpleDateFormat dfm = new SimpleDateFormat("dd-MM-yyyy");
+                        Date birthdayDate = (Date)dfm.parse(birthdayString);
+                        ex.setBirthDay(birthdayDate);
+                    }
+                    System.out.println("Edit email? --- 1.Yes 0.No");
+                    condition = scan.nextInt(); scan.nextLine();
+                    if(condition == 1){
+                        System.out.println("Enter email: ");
+                        String emailEdit = scan.nextLine();
+                        ex.setEmail(emailEdit);
+                    }
+                    System.out.println("Edit employee_type? --- 1.Yes 0.No");
+                    condition = scan.nextInt(); scan.nextLine();
+                    if(condition == 1){
+                        System.out.println("Enter employee type: ");
+                        String empl_typeEdit = scan.nextLine();
+                        ex.setEmployee_type(empl_typeEdit);
+                    }
+                    System.out.println("Edit exp year? --- 1.Yes 0.No");
+                    condition = scan.nextInt(); scan.nextLine();
+                    if(condition == 1){
+                        System.out.println("Enter exp year: ");
+                        int expYearEdit = scan.nextInt(); scan.nextLine();
+                        ex.setExpYear(expYearEdit);
+                    }
+                    System.out.println("Edit professional skill? --- 1.Yes 0.No");
+                    condition  =scan.nextInt(); scan.nextLine();
+                    if(condition == 1){
+                        System.out.println("Enter pro skill: ");
+                        String proSkillEdit = scan.nextLine();
+                        ex.setProSkill(proSkillEdit);
+                    }
+                    // replace obj empl moi vao obj cu o arraylist
+                    expManager.getExpList().set(emplIndex, ex);
+                    System.out.println("Edit successfully ><");
+
+
+                }
+            }
+        }
         return null;
     }
 
