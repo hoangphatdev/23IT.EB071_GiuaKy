@@ -17,9 +17,11 @@ import java.util.Scanner;
 
 public class CrudEmplImple implements CrudEmpl{
     EmployeeList emplManager = new EmployeeList();
+    ExperienceList expManager = new ExperienceList();
+    FresherList fresherManager = new FresherList();
+    InternList internManager = new InternList();
     @Override
     public IEmployee addEmpl() throws ParseException {
-
         Scanner scan = new Scanner(System.in);
         int num = 0;
         System.out.println("Which employee do you want to add?");
@@ -50,10 +52,7 @@ public class CrudEmplImple implements CrudEmpl{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            emplManager.getEmplList().add(ex);
-
-
-
+            expManager.getExpList().add(ex);
         }else if(num == 2){
             System.out.println("id: ");
             int id = scan.nextInt(); scan.nextLine();
@@ -80,7 +79,7 @@ public class CrudEmplImple implements CrudEmpl{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            emplManager.getEmplList().add(fr);
+            fresherManager.getFresherList().add(fr);
 
         }else if(num == 3){
             System.out.println("id: ");
@@ -107,7 +106,7 @@ public class CrudEmplImple implements CrudEmpl{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            emplManager.getEmplList().add(inter);
+            internList.getInternList().add(inter);
         }
         return null;
     }
@@ -119,12 +118,38 @@ public class CrudEmplImple implements CrudEmpl{
         String fullName = scan.nextLine();
         System.out.println("Enter your employee id which is needed to delete");
         int id = scan.nextInt(); scan.nextLine();
+        System.out.println("Enter type of employee");
+        System.out.println("1. Experience employee");
+        System.out.println("2. Fresher");
+        System.out.println("3. Intern ");
+        int num = scan.nextInt(); scan.nextLine();
+        if(num == 1){
+            for(Experience_employee ex : expManager.getExpList()){
+                if(ex.getId() == id && ex.getFullName() == fullName){
+                    expManager.getExpList().remove(ex);
+                }
+                else System.out.println("Id and FullName not found!!!");
+            }
+        }else if (num == 2){
+            for(Fresher_employee fr : fresherManager.getFresherList()){
+                if(fr.getId() == id && fr.getFullName() == fullName){
+                    fresherManager.getFresherList().remove(fr);
+                }
+                else System.out.println("Id and FullName not found!!!");
+            }
+        }else if (num == 3){
+            for(Intern_employee in : internManager.getInternList()){
+                if(in.getId() == id && in.getFullName() == fullName){
+                    internManager.getInternList().remove(in);
+                }
+                else System.out.println("Id and FullName not found!!!");
+            }
+        }
 
 
 
         return null;
     }
-
     @Override
     public IEmployee editEmpl() {
         return null;
