@@ -106,7 +106,7 @@ public class CrudEmplImple implements CrudEmpl{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            internList.getInternList().add(inter);
+            internManager.getInternList().add(inter);
         }
         return null;
     }
